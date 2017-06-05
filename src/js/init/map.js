@@ -46,7 +46,7 @@ window.map = new Map({
     })
   ],
   view: new View({
-    center: [0, 0],
-    zoom: 5
+    center: [-8282795.886923946, 590690.560418854 ],
+    zoom: 14
   })
 });
