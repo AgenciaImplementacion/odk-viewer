@@ -24,7 +24,6 @@ const config = {
       exclude: path.resolve(__dirname, 'node_modules/')
     }, {
       test: /\.css$/,
-      exclude: /node_modules/,
       use: ExtractTextPlugin.extract({
         use: [{
           loader: 'css-loader',
