@@ -1,0 +1,13 @@
+require('css/shapefile.css');
+//var proj5 = require('proj4/projs');
+//console.log(proj5);
+// window.proj5 = proj5;
+import JSZip from 'js/lib/jszip';
+window.JSZip = JSZip;
+import JSZipUtils from 'js/lib/jszip-utils';
+window.JSZipUtils = JSZipUtils;
+import 'js/lib/preprocess';
+import loadshp from 'js/lib/preview.js';
+window.loadshp = loadshp;
+import 'js/modules/shapefile/subir.js';
+import 'js/modules/shapefile/popup.js';
