@@ -1,24 +1,24 @@
-# shapefile-viewer
+# odk-viewer
 Visor web básico de datos geográficos.
 
 # Requerimientos
 
 - Openlayers 4
 - Webpack 2
-- nodejs
-- npm
+- nodejs (necesario instalar)
+- npm (necesario instalar)
 
 # Entorno de desarrollo
 1) Clonar el proyecto.
 
 ```bash
-git clone https://github.com/AgenciaImplementacion/shapefile-viewer
+git clone https://github.com/AgenciaImplementacion/odk-viewer
 ```
 
 2) Instalar las dependencias.
 
 ```bash
-cd shapefile-viewer
+cd odk-viewer
 npm install
 ```
 ## Desarrollo live-reload
@@ -41,7 +41,7 @@ open index.html
 ```
 
 # Conveniciones para construir el projecto
-- https://github.com/kriasoft/Folder-Structure-Conventions
+ - https://github.com/kriasoft/Folder-Structure-Conventions
 
 # Basado en
  - https://github.com/gipong/shp2geojson.js
