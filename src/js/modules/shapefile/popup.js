@@ -15,7 +15,7 @@ select_interaction.on('select', function(evt) {
     if (properties.hasOwnProperty(property)) {
       if (['geometry'].indexOf(property) === -1) { //Si geometry no pertenece al conjunto
         if(property === 'imagen_predio'){
-          contentHTML += '<p>' + property + ':</p> <img src="' + properties[property] + '" style="width:200px; height:200px;  transform: rotate(90deg);"/><br/>';
+          contentHTML += '<p>' + property + ':</p> <img src="' + properties[property] + '" style="width:200px; height:200px;"/><br/>';
         } else {
           contentHTML += '<p>' + property + ': ' + properties[property] + '</p>';
         }
