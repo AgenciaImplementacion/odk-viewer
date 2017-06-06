@@ -1,5 +1,5 @@
 # odk-viewer
-Visor web básico de datos geográficos.
+Visor web básico de datos geográficos servicio de publicación.
 
 # Requerimientos
 
