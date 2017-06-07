@@ -120,3 +120,46 @@ var styles = {
 var styleFunction = function(feature) {
   return styles[feature.getGeometry().getType()];
 };
+
+
+window.masInformacion = function(id) {
+   var url = 'https://ide.proadmintierra.info/odk/odk_p.php?id=' + id;
+   $.ajax({url: url, dataType: 'json', jsonp: true}).done(function(response) {
+      console.log(response);
+   });
+
+   var properties = {
+        "numero": "5200",
+        "direccion": "Santa Lucia",
+        "numero_viejo": "87878787878787878787",
+        "clasepredio": "Privado",
+        "clasesuelo": null,
+        "condicionpredio": "Formal",
+        "comuna": null,
+        "departamento": "25",
+        "derechodelpredio": "Propiedad",
+        "disponibilidaddelaoferta": null,
+        "estratosocieconomico": null,
+        "municipio": "394",
+        "obrainfrainteriorlist": null,
+        "observaciones": null,
+        "opcionpredio": "Comunidad",
+        "territoriosagricolas": null,
+        "tipoderecho": null,
+        "tipodocumento": null,
+        "tipofuenteagulist": null,
+        "tipopersona": null,
+        "tipopredio": "Rural",
+        "titulardelpredio": null
+    };
+
+    var content = document.getElementById('contenido-barra-lateral');
+    var contentHTML = '';
+    for (var property in properties) {
+      if (properties.hasOwnProperty(property)) {
+          contentHTML += '<p>' + property + ': ' + properties[property] + '</p>';
+      }
+    }
+
+    content.innerHTML = contentHTML;
+}

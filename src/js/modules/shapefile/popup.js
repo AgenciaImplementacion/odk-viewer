@@ -15,12 +15,16 @@ select_interaction.on('select', function(evt) {
     if (properties.hasOwnProperty(property)) {
       if (['geometry'].indexOf(property) === -1) { //Si geometry no pertenece al conjunto
         if(property === 'imagen_predio'){
-          contentHTML += '<p>' + property + ':</p> <img src="' + properties[property] + '" style="width:200px; height:200px;"/><br/>';
+          contentHTML += '<p>' + property + ':</p> <img src="' + properties[property] + '" style="width:200px; height:200px;"/><br/><br/>';
         } else {
           contentHTML += '<p>' + property + ': ' + properties[property] + '</p>';
         }
       }
     }
+  }
+
+  if(typeof(properties['numero']) !== 'undefined'){
+    contentHTML += '<p><a href="#" onclick="masInformacion(\'' + properties['numero'] + '\')">Más Información</a></p>';
   }
 
   content.innerHTML = contentHTML;
