@@ -125,40 +125,17 @@ window.masInformacion = function(id) {
    var url = 'https://ide.proadmintierra.info/odk/odk_p.php?id=' + id;
    $.ajax({url: url}).done(function(response) {
       console.log('response', response);
-   });
+      var properties = response[0];
 
-   var properties = {
-        "numero": "5200",
-        "direccion": "Santa Lucia",
-        "numero_viejo": "87878787878787878787",
-        "clasepredio": "Privado",
-        "clasesuelo": null,
-        "condicionpredio": "Formal",
-        "comuna": null,
-        "departamento": "25",
-        "derechodelpredio": "Propiedad",
-        "disponibilidaddelaoferta": null,
-        "estratosocieconomico": null,
-        "municipio": "394",
-        "obrainfrainteriorlist": null,
-        "observaciones": null,
-        "opcionpredio": "Comunidad",
-        "territoriosagricolas": null,
-        "tipoderecho": null,
-        "tipodocumento": null,
-        "tipofuenteagulist": null,
-        "tipopersona": null,
-        "tipopredio": "Rural",
-        "titulardelpredio": null
-    };
-
-    var content = document.getElementById('contenido-barra-lateral');
-    var contentHTML = '';
-    for (var property in properties) {
-      if (properties.hasOwnProperty(property)) {
-          contentHTML += '<p>' + property + ': ' + properties[property] + '</p>';
+      var content = document.getElementById('contenido-barra-lateral');
+      var contentHTML = '';
+      for (var property in properties) {
+        if (properties.hasOwnProperty(property)) {
+          if(properties[property]+'' !== 'null'){
+            contentHTML += '<span><b class="titulo-propiedades">' + property + ':</b><br/> ' + properties[property] + '</span><br/>';
+          }
+        }
       }
-    }
-
-    content.innerHTML = contentHTML;
+      content.innerHTML = contentHTML;
+   });
 }
