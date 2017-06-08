@@ -4,6 +4,10 @@ var content = document.getElementById('popup-content');
 
 var select_interaction = new Select();
 select_interaction.on('select', function(evt) {
+  var capa = lastFeature.getId().split('.')[0];
+  if(capa === 'poligono'){
+    return;
+  }
   console.log(evt);
   window.evt = evt;
   var coordinate = evt.mapBrowserEvent.coordinate;

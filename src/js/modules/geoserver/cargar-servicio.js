@@ -36,17 +36,53 @@ var serviceSource = new SourceVector({
 
 var serviceLayer = new LayerVector({
   source: serviceSource,
-  style: styleFunction
+  style: function(feature) {
+    return styles[feature.getGeometry().getType()];
+  }
 });
 
 window.map.addLayer(serviceLayer);
 
+//segunda capa poligono
 
+var serviceSource2 = new SourceVector({
+  loader: function(extent, resolution, projection) {
+    //console.log('bad extent', extent, resolution, projection);
+    var newExtent = window.map.getView().calculateExtent(window.map.getSize());
+    //console.log('new extent', newExtent);
+    //extent = newExtent.join(',');
+    extent = newExtent;
+
+    var url = serverConfig.url2 + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
+    // use jsonp: false to prevent jQuery from adding the "callback"
+    // parameter to the URL
+    $.ajax({url: url, dataType: 'json', jsonp: false}).done(function(response) {
+      serviceSource2.addFeatures(geojsonFormat.readFeatures(response))
+    });
+  },
+  strategy: Loadingstrategy.tile(Tilegrid.createXYZ({maxZoom: 19}))
+});
+
+var serviceLayer2 = new LayerVector({
+  source: serviceSource2,
+  style: function(feature) {
+    //console.log('serviceLayer2', feature.getGeometry().getType());
+    return styles2[feature.getGeometry().getType()];
+  }
+});
+
+//window.serviceLayer2 = serviceLayer2;
+window.map.addLayer(serviceLayer2);
+
+//termina segunda capa poligono
+//style1
 var image = new Circle({
   radius: 5,
-  fill: null,
+  fill: new Fill({
+    color: 'rgba(223, 62, 62, 1)'
+  }),
   stroke: new Stroke({
-    color: 'red',
+    color: 'rgba(116, 43, 8, 0.45)',
     width: 1
   })
 });
@@ -98,7 +134,7 @@ var styles = {
       color: 'magenta'
     }),
     image: new Circle({
-      radius: 10,
+      radius: 5,
       fill: null,
       stroke: new Stroke({
         color: 'magenta'
@@ -116,10 +152,72 @@ var styles = {
   })
 };
 
-var styleFunction = function(feature) {
-  return styles[feature.getGeometry().getType()];
-};
+//poligono styles
 
+var styles2 = {
+  'Point': new Style({
+    image: image
+  }),
+  'LineString': new Style({
+    stroke: new Stroke({
+      color: 'green',
+      width: 1
+    })
+  }),
+  'MultiLineString': new Style({
+    stroke: new Stroke({
+      color: 'green',
+      width: 1
+    })
+  }),
+  'MultiPoint': new Style({
+    image: image
+  }),
+  'MultiPolygon': new Style({
+    stroke: new Stroke({
+      color: 'rgb(58, 153, 0)',
+      width: 1
+    }),
+    fill: new Fill({
+      color: 'rgba(43, 255, 0, 0.1)'
+    })
+  }),
+  'Polygon': new Style({
+    stroke: new Stroke({
+      color: 'blue',
+      lineDash: [4],
+      width: 3
+    }),
+    fill: new Fill({
+      color: 'rgba(0, 0, 255, 0.1)'
+    })
+  }),
+  'GeometryCollection': new Style({
+    stroke: new Stroke({
+      color: 'magenta',
+      width: 2
+    }),
+    fill: new Fill({
+      color: 'magenta'
+    }),
+    image: new Circle({
+      radius: 10,
+      fill: null,
+      stroke: new Stroke({
+        color: 'magenta'
+      })
+    })
+  }),
+  'Circle': new Style({
+    stroke: new Stroke({
+      color: 'red',
+      width: 2
+    }),
+    fill: new Fill({
+      color: 'rgb(255,0,0)'
+    })
+  })
+};
 
 window.masInformacion = function(id) {
    var url = 'https://ide.proadmintierra.info/odk/odk_p.php?id=' + id;
