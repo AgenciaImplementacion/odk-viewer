@@ -16,33 +16,6 @@ import Tilegrid from 'ol/tilegrid';
 // format used to parse WFS GetFeature responses
 var geojsonFormat = new GeoJSON();
 
-var serviceSource = new SourceVector({
-  loader: function(extent, resolution, projection) {
-    //console.log('bad extent', extent, resolution, projection);
-    var newExtent = window.map.getView().calculateExtent(window.map.getSize());
-    //console.log('new extent', newExtent);
-    //extent = newExtent.join(',');
-    extent = newExtent;
-
-    var url = serverConfig.url + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
-    // use jsonp: false to prevent jQuery from adding the "callback"
-    // parameter to the URL
-    $.ajax({url: url, dataType: 'json', jsonp: false}).done(function(response) {
-      serviceSource.addFeatures(geojsonFormat.readFeatures(response))
-    });
-  },
-  strategy: Loadingstrategy.tile(Tilegrid.createXYZ({maxZoom: 19}))
-});
-
-var serviceLayer = new LayerVector({
-  source: serviceSource,
-  style: function(feature) {
-    return styles[feature.getGeometry().getType()];
-  }
-});
-
-window.map.addLayer(serviceLayer);
-
 //segunda capa poligono
 
 var serviceSource2 = new SourceVector({
@@ -75,6 +48,35 @@ var serviceLayer2 = new LayerVector({
 window.map.addLayer(serviceLayer2);
 
 //termina segunda capa poligono
+
+var serviceSource = new SourceVector({
+  loader: function(extent, resolution, projection) {
+    //console.log('bad extent', extent, resolution, projection);
+    var newExtent = window.map.getView().calculateExtent(window.map.getSize());
+    //console.log('new extent', newExtent);
+    //extent = newExtent.join(',');
+    extent = newExtent;
+
+    var url = serverConfig.url + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
+    // use jsonp: false to prevent jQuery from adding the "callback"
+    // parameter to the URL
+    $.ajax({url: url, dataType: 'json', jsonp: false}).done(function(response) {
+      serviceSource.addFeatures(geojsonFormat.readFeatures(response))
+    });
+  },
+  strategy: Loadingstrategy.tile(Tilegrid.createXYZ({maxZoom: 19}))
+});
+
+var serviceLayer = new LayerVector({
+  source: serviceSource,
+  style: function(feature) {
+    return styles[feature.getGeometry().getType()];
+  }
+});
+
+window.map.addLayer(serviceLayer);
+
+
 //style1
 var image = new Circle({
   radius: 5,
