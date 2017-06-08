@@ -1,5 +1,4 @@
-import serverConfig from './config';
-console.log(serverConfig.url);
+import serverConfig from 'conf/config';
 
 import GeoJSON from 'ol/format/geojson';
 import SourceVector from 'ol/source/vector';
@@ -124,8 +123,8 @@ var styleFunction = function(feature) {
 
 window.masInformacion = function(id) {
    var url = 'https://ide.proadmintierra.info/odk/odk_p.php?id=' + id;
-   $.ajax({url: url, dataType: 'json', jsonp: true}).done(function(response) {
-      console.log(response);
+   $.ajax({url: url}).done(function(response) {
+      console.log('response', response);
    });
 
    var properties = {
