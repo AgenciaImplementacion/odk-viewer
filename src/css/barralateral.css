@@ -1,14 +1,12 @@
 #barra-lateral {
-  position: absolute;
-  width: 300px;
-  height: auto;
-  top: 5px;
-  right: 5px;
   background-color: #eee;
-}
-
-#barra-lateral > div {
   width: 300px;
+  height: -webkit-calc(100% - 36px);
+  height: -moz-calc(100% - 36px);
+  height: calc(100% - 36px);
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .demo-card-wide.mdl-card {
@@ -27,7 +25,10 @@
 
 #contenido-barra-lateral {
   overflow-y: auto;
-  max-height: 200px;
+  position: absolute;
+  /*max-height: -webkit-calc(100% - 36px);
+  max-height: -moz-calc(100% - 36px);
+  max-height: calc(100% - 36px);*/
 }
 
 #contenido-barra-lateral p{

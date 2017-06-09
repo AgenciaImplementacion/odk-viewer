@@ -13,24 +13,41 @@
         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
         <div id="popup-content"></div>
     </div>
-    <div id="barra-lateral">
-      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text">Piloto la palma</h2>
+    <div id="barra-lateral" class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Piloto la palma</h2>
+      </div>
+      <!-- MDL Tab Container -->
+      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <!-- Tab Bars -->
+        <div class="mdl-tabs__tab-bar">
+            <a href="#panel-1" class="mdl-tabs__tab is-active">Predio</a>
+            <a href="#panel-2" class="mdl-tabs__tab">Estadísticas</a>
         </div>
-        <div class="mdl-card__supporting-text" id="contenido-barra-lateral">
-          Levantamiento de información predios.
+
+        <!-- MDL tab panels, is-active to denote currently active -->
+        <div class="mdl-tabs__panel is-active" id="panel-1">
+          <div id="contenido-barra-lateral">
+            Levantamiento de información predios.
+          </div>
         </div>
-        <!-- <div class="mdl-card__actions mdl-card--border">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Get Started
-          </a>
-        </div> -->
-        <div class="mdl-card__menu">
-          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <!-- <i class="material-icons">share</i> -->
-          </button>
+
+        <!-- MDL Tab panel 2 -->
+        <div class="mdl-tabs__panel" id="panel-2">
+          <ul>
+          </ul>
         </div>
+      </div>
+      <!-- MDL Tab final -->
+      <!-- <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Get Started
+        </a>
+      </div> -->
+      <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <!-- <i class="material-icons">share</i> -->
+        </button>
       </div>
     </div>
     <div id="shapefile-container">
