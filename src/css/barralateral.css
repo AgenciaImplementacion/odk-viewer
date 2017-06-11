@@ -26,9 +26,10 @@
 #contenido-barra-lateral {
   overflow-y: auto;
   position: absolute;
-  /*max-height: -webkit-calc(100% - 36px);
-  max-height: -moz-calc(100% - 36px);
-  max-height: calc(100% - 36px);*/
+  margin: 10px;
+  height: -webkit-calc(100% - 252px);
+  height: -moz-calc(100% - 252px);
+  height: calc(100% - 252px);
 }
 
 #contenido-barra-lateral p{

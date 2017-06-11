@@ -2,60 +2,60 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Visor</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <meta charset="utf-8">
+  <title>Visor</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-    <div id="map"></div>
-    <div id="popup" class="ol-popup">
-        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-        <div id="popup-content"></div>
+  <div id="map"></div>
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+  </div>
+  <div id="barra-lateral" class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Piloto la palma</h2>
     </div>
-    <div id="barra-lateral" class="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Piloto la palma</h2>
+    <!-- MDL Tab Container -->
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      <!-- Tab Bars -->
+      <div class="mdl-tabs__tab-bar">
+        <a href="#panel-1" class="mdl-tabs__tab is-active">Predio</a>
+        <a href="#panel-2" class="mdl-tabs__tab">Estadísticas</a>
       </div>
-      <!-- MDL Tab Container -->
-      <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-        <!-- Tab Bars -->
-        <div class="mdl-tabs__tab-bar">
-            <a href="#panel-1" class="mdl-tabs__tab is-active">Predio</a>
-            <a href="#panel-2" class="mdl-tabs__tab">Estadísticas</a>
-        </div>
 
-        <!-- MDL tab panels, is-active to denote currently active -->
-        <div class="mdl-tabs__panel is-active" id="panel-1">
-          <div id="contenido-barra-lateral">
-            Levantamiento de información predios.
-          </div>
-        </div>
-
-        <!-- MDL Tab panel 2 -->
-        <div class="mdl-tabs__panel" id="panel-2">
-          <ul>
-          </ul>
+      <!-- MDL tab panels, is-active to denote currently active -->
+      <div class="mdl-tabs__panel is-active" id="panel-1">
+        <div id="contenido-barra-lateral">
+          Levantamiento de información predios.
         </div>
       </div>
-      <!-- MDL Tab final -->
-      <!-- <div class="mdl-card__actions mdl-card--border">
+
+      <!-- MDL Tab panel 2 -->
+      <div class="mdl-tabs__panel" id="panel-2">
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+      </div>
+    </div>
+    <!-- MDL Tab final -->
+    <!-- <div class="mdl-card__actions mdl-card--border">
         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
           Get Started
         </a>
       </div> -->
-      <div class="mdl-card__menu">
-        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <!-- <i class="material-icons">share</i> -->
         </button>
-      </div>
     </div>
-    <div id="shapefile-container">
-        <i class="file archive outline icon"></i>
-        <input type="file" id="file" accept=".zip">
-    </div>
-    <div id="cargando" class="hidden"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.3/proj4.js"></script>
+  </div>
+  <div id="shapefile-container">
+    <i class="file archive outline icon"></i>
+    <input type="file" id="file" accept=".zip">
+  </div>
+  <div id="cargando" class="hidden"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.3/proj4.js"></script>
 </body>
 
 </html>
