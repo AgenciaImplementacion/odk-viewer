@@ -21,7 +21,7 @@
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       <!-- Tab Bars -->
       <div class="mdl-tabs__tab-bar">
-        <a href="#panel-1" class="mdl-tabs__tab is-active">Predio</a>
+        <a href="#panel-1" class="mdl-tabs__tab">Predio</a>
         <a href="#panel-2" class="mdl-tabs__tab">Estadísticas</a>
       </div>
 
@@ -34,8 +34,9 @@
 
       <!-- MDL Tab panel 2 -->
       <div class="mdl-tabs__panel" id="panel-2">
-        <canvas id="myChart" width="400" height="400"></canvas>
-
+        <div id="canvas-holder" style="width:100%">
+            <canvas id="chart-area" />
+        </div>
       </div>
     </div>
     <!-- MDL Tab final -->

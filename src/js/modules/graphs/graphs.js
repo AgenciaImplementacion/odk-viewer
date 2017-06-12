@@ -1,9 +1,9 @@
-import './utils';
+require('./utils');
 
-var ctx = document.getElementById("myChart").getContext('2d');
 var randomScalingFactor = function() {
   return Math.round(Math.random() * 100);
 };
+
 var config = {
   type: 'pie',
   data: {
@@ -24,4 +24,8 @@ var config = {
     responsive: true
   }
 };
-var myChart = new Chart(ctx, config);
+
+window.onload = function() {
+    var ctx = document.getElementById("chart-area").getContext("2d");
+    window.myPie = new Chart(ctx, config);
+};
