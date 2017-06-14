@@ -45,7 +45,3 @@
 .ol-popup-closer:after {
     content: "✖";
 }
-
-#popup-content p {
-    line-height: 1px;
-}

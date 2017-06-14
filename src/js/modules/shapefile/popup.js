@@ -5,9 +5,9 @@ var content = document.getElementById('popup-content');
 var select_interaction = new Select();
 select_interaction.on('select', function(evt) {
   var capa = lastFeature.getId().split('.')[0];
-  if(capa === 'poligono'){
-    return;
-  }
+  // if(capa === 'poligono'){
+  //   return;
+  // }
   console.log(evt);
   window.evt = evt;
   var coordinate = evt.mapBrowserEvent.coordinate;
@@ -19,9 +19,9 @@ select_interaction.on('select', function(evt) {
     if (properties.hasOwnProperty(property)) {
       if (['geometry'].indexOf(property) === -1) { //Si geometry no pertenece al conjunto
         if(property === 'imagen_predio'){
-          contentHTML += '<p>' + property + ':</p> <img src="' + properties[property] + '" style="width:200px; height:200px;"/><br/><br/>';
+          contentHTML += '<span>' + property + ':</p> <img src="' + properties[property] + '" style="width:200px; height:200px;"/><br/><br/>';
         } else {
-          contentHTML += '<p>' + property + ': ' + properties[property] + '</p>';
+          contentHTML += '<span>' + property + ': ' + properties[property] + '</span><br/>';
         }
       }
     }
@@ -29,6 +29,10 @@ select_interaction.on('select', function(evt) {
 
   if(typeof(properties['numero']) !== 'undefined'){
     contentHTML += '<p><a href="#" onclick="masInformacion(\'' + properties['numero'] + '\')">Más Información</a></p>';
+  }
+
+  if(typeof(properties['Cod_Predio']) !== 'undefined'){
+    contentHTML += '<p><a href="#" onclick="masInformacion(\'' + properties['Cod_Predio'] + '\')">Más Información</a></p>';
   }
 
   content.innerHTML = contentHTML;
