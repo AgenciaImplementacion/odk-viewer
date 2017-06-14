@@ -31,8 +31,8 @@ select_interaction.on('select', function(evt) {
     contentHTML += '<p><a href="#" onclick="masInformacion(\'' + properties['numero'] + '\')">Más Información</a></p>';
   }
 
-  if(typeof(properties['Cod_Predio']) !== 'undefined'){
-    contentHTML += '<p><a href="#" onclick="masInformacion(\'' + properties['Cod_Predio'] + '\')">Más Información</a></p>';
+  if(typeof(properties['cod_cat_rg']) !== 'undefined'){
+    contentHTML += '<p><a href="#" onclick="masInformacion(\'' + properties['cod_cat_rg'] + '\')">Más Información</a></p>';
   }
 
   content.innerHTML = contentHTML;
