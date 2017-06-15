@@ -1,0 +1,19 @@
+#select-chart {
+  width: 100%;
+}
+
+#select-chart select {
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+#contenido-charts {
+  overflow-y: auto;
+  position: absolute;
+  height: -webkit-calc(100% - 226px);
+  height: -moz-calc(100% - 226px);
+  height: calc(100% - 226px);
+  width: 295px;
+}

@@ -30,6 +30,7 @@
   height: -webkit-calc(100% - 252px);
   height: -moz-calc(100% - 252px);
   height: calc(100% - 252px);
+  width: 295px;
 }
 
 #contenido-barra-lateral p{

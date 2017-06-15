@@ -11,6 +11,15 @@ function graficarPie (id){
      console.log('response', response);
      var data = new Array();
      var labels = new Array();
+     var colorlist = [
+       window.chartColors.red,
+       window.chartColors.orange,
+       window.chartColors.yellow,
+       window.chartColors.green,
+       window.chartColors.blue,
+       window.chartColors.purple,
+       window.chartColors.gray
+    ];
      for (var i = 0; i < response.length; i++) {
        var alias = response[i].alias;
        var numPredios = response[i].predios.length;
@@ -23,16 +32,17 @@ function graficarPie (id){
          datasets: [
            {
              data: data,
-             backgroundColor: [
-               window.chartColors.red, window.chartColors.orange, window.chartColors.yellow, window.chartColors.green, window.chartColors.blue
-             ],
-             label: 'Dataset 1'
+             backgroundColor: colorlist,
+             label: 'Género'
            }
          ],
          labels: labels
        },
        options: {
-         responsive: true
+         responsive: true,
+         legend: {
+           position: 'bottom',
+         },
        }
      };
      var ctx = document.getElementById("chart-area").getContext("2d");

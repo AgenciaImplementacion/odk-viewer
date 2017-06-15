@@ -34,8 +34,21 @@
 
       <!-- MDL Tab panel 2 -->
       <div class="mdl-tabs__panel" id="panel-2">
-        <div id="canvas-holder" style="width:100%">
-            <canvas id="chart-area" />
+        <div id="contenido-charts">
+          <div id="select-chart">
+            <select>
+              <option value="" selected="selected" disabled="disabled">Seleccione una gráfica.</option>
+              <option value="tea">Género Propietario</option>
+              <option value="coffee">Actividad Predio</option>
+              <option value="soda">Capa Vegetal</option>
+              <option value="soda">Condición del Predio</option>
+              <option value="soda">Riesgo Dezlizamiento</option>
+              <option value="soda">Predio Por Vereda</option>
+            </select>
+          </div>
+          <div id="canvas-holder" style="width:100%">
+              <canvas id="chart-area" />
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +61,7 @@
     <div class="mdl-card__menu">
       <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <!-- <i class="material-icons">share</i> -->
-        </button>
+      </button>
     </div>
   </div>
   <div id="shapefile-container">

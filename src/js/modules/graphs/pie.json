@@ -1,6 +1,6 @@
 [{
     "nombre": "femenino",
-    "alias": "Genero Femenino",
+    "alias": "Género Femenino",
     "predios": [
         "034234",
         "234234",
@@ -9,7 +9,7 @@
     ]
 }, {
     "nombre": "masculino",
-    "alias": "Genero Masculino",
+    "alias": "Género Masculino",
     "predios": [
         "034334",
         "22234",
