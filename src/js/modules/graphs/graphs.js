@@ -1,8 +1,12 @@
 require('./utils');
 
+import createLayer from './addChartDataToMap';
+
 var randomScalingFactor = function() {
   return Math.round(Math.random() * 100);
 };
+
+var lastCharData = null;
 
 window.graficarPie = function(value) {
   //var url = require('file-loader!./pie.json');
@@ -26,11 +30,15 @@ window.graficarPie = function(value) {
       window.chartColors.magenta
     ];
     for (var i = 0; i < response.length; i++) {
+      response[i].color = colorlist[i];
       var alias = response[i].alias;
       var numPredios = response[i].predios.length;
       labels.push(alias);
       data.push(numPredios);
     }
+
+    lastCharData = response;
+
     if (typeof window.myPieConfig !== 'undefined') {
       window.myPieConfig.data.datasets.splice(0, 1); //Se elimina el anterior
       var newDataset = {
@@ -64,7 +72,6 @@ window.graficarPie = function(value) {
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {
-              console.log(tooltipItem, data);
               var label = data.labels[tooltipItem.index];
               var dataset = data.datasets[tooltipItem.datasetIndex];
               var value = dataset.data[tooltipItem.index];
@@ -90,3 +97,12 @@ $(document).ready(function() {
 // window.onload = function() {
 //
 // };
+
+window.addChartDataToMap = function (){
+  var layer = createLayer(true, lastCharData);
+  window.map.addLayer(layer);
+}
+
+window.removeChartOfMap = function (){
+  map.removeLayer(map.getLayer('piloto-filtrado'));
+}

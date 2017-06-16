@@ -26,7 +26,7 @@ var serviceSource2 = new SourceVector({
     //extent = newExtent.join(',');
     extent = newExtent;
 
-    var url = serverConfig.url2 + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
+    var url = serverConfig.url_poligonos + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
     // use jsonp: false to prevent jQuery from adding the "callback"
     // parameter to the URL
     $.ajax({url: url, dataType: 'json', jsonp: false}).done(function(response) {
@@ -57,7 +57,7 @@ var serviceSource = new SourceVector({
     //extent = newExtent.join(',');
     extent = newExtent;
 
-    var url = serverConfig.url + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
+    var url = serverConfig.url_datos + '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857'
     // use jsonp: false to prevent jQuery from adding the "callback"
     // parameter to the URL
     $.ajax({url: url, dataType: 'json', jsonp: false}).done(function(response) {

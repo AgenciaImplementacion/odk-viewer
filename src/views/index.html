@@ -42,15 +42,28 @@
               <option value="odk_actividad.php">Actividad Predio</option>
               <option value="odk_vegetal.php">Capa Vegetal</option>
               <option value="odk_condicion_predio.php">Condición del Predio</option>
-              <option value="odk_riesgo_deslizamiento.php">Riesgo Dezlizamiento</option>
-              <option value="odk_predio_vereda.php">Predio Por Vereda</option>
             </select>
           </div>
+          <!-- end #select-chart -->
           <div id="canvas-holder" style="width:100%">
               <canvas id="chart-area" />
           </div>
+          <!-- end #canvas-holder -->
+          <div id="ver-en-mapa">
+            <!-- Colored raised button -->
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="addChartDataToMap();">
+              Ver en Mapa
+            </button>
+            <!-- Accent-colored raised button -->
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="removeChartOfMap();">
+              Quitar
+            </button>
+          </div>
+          <!-- end #mapa-agregar -->
         </div>
+        <!-- end #contenido-charts -->
       </div>
+      <!-- end #panel-2 -->
     </div>
     <!-- MDL Tab final -->
     <!-- <div class="mdl-card__actions mdl-card--border">

@@ -50,3 +50,17 @@ window.map = new Map({
     zoom: 16
   })
 });
+
+window.map.getLayer = _getLayerById;
+
+
+function _getLayerById(id) {
+  var layers = window.map.getLayers().getArray();
+  return layers.find(function(layer) {
+    var source = layer.getSource();
+    if (typeof(source.config) !== 'undefined') {
+      return source.config.id === id;
+    }
+    return false;
+  });
+}
