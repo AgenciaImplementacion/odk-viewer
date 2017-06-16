@@ -4,28 +4,55 @@ var randomScalingFactor = function() {
   return Math.round(Math.random() * 100);
 };
 
-var config = {
-  type: 'pie',
-  data: {
-    datasets: [
-      {
-        data: [
-          randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()
-        ],
-        backgroundColor: [
-          window.chartColors.red, window.chartColors.orange, window.chartColors.yellow, window.chartColors.green, window.chartColors.blue
-        ],
-        label: 'Dataset 1'
-      }
-    ],
-    labels: ["Red", "Orange", "Yellow", "Green", "Blue"]
-  },
-  options: {
-    responsive: true
-  }
-};
+function graficarPie (id){
+  var url = require('file-loader!./pie.json');
+  console.log(url);
+  $.ajax({url: url}).done(function(response) {
+     console.log('response', response);
+     var data = new Array();
+     var labels = new Array();
+     var colorlist = [
+       window.chartColors.red,
+       window.chartColors.orange,
+       window.chartColors.yellow,
+       window.chartColors.green,
+       window.chartColors.blue,
+       window.chartColors.purple,
+       window.chartColors.gray
+    ];
+     for (var i = 0; i < response.length; i++) {
+       var alias = response[i].alias;
+       var numPredios = response[i].predios.length;
+       labels.push(alias);
+       data.push(numPredios);
+     }
+     var config = {
+       type: 'pie',
+       data: {
+         datasets: [
+           {
+             data: data,
+             backgroundColor: colorlist,
+             label: 'Género'
+           }
+         ],
+         labels: labels
+       },
+       options: {
+         responsive: true,
+         legend: {
+           position: 'bottom',
+         },
+       }
+     };
+     var ctx = document.getElementById("chart-area").getContext("2d");
+     window.myPie = new Chart(ctx, config);
+  });
+}
 
-window.onload = function() {
-    var ctx = document.getElementById("chart-area").getContext("2d");
-    window.myPie = new Chart(ctx, config);
-};
+$( document ).ready(function() {
+  graficarPie();
+});
+// window.onload = function() {
+//
+// };
