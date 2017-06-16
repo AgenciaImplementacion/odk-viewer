@@ -5,8 +5,8 @@ var randomScalingFactor = function() {
 };
 
 function graficarPie (id){
-  var url = require('file-loader!./pie.json');
-  console.log(url);
+  //var url = require('file-loader!./pie.json');
+  var url = 'https://ide.proadmintierra.info/odk/odk_actividad.php';
   $.ajax({url: url}).done(function(response) {
      console.log('response', response);
      var data = new Array();
