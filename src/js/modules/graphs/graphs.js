@@ -19,7 +19,11 @@ window.graficarPie = function(value) {
       window.chartColors.green,
       window.chartColors.blue,
       window.chartColors.purple,
-      window.chartColors.gray
+      window.chartColors.grey,
+      window.chartColors.pink,
+      window.chartColors.brown,
+      window.chartColors.cyan,
+      window.chartColors.magenta
     ];
     for (var i = 0; i < response.length; i++) {
       var alias = response[i].alias;
