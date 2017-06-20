@@ -18,16 +18,16 @@ window.graficarPie = function(value) {
     var labels = new Array();
     var colorlist = [
       window.chartColors.red,
-      window.chartColors.orange,
-      window.chartColors.yellow,
       window.chartColors.green,
+      window.chartColors.orange,
       window.chartColors.blue,
+      window.chartColors.yellow,
       window.chartColors.purple,
       window.chartColors.grey,
       window.chartColors.pink,
-      window.chartColors.brown,
+      window.chartColors.magenta,
       window.chartColors.cyan,
-      window.chartColors.magenta
+      window.chartColors.brown
     ];
     for (var i = 0; i < response.length; i++) {
       response[i].color = colorlist[i];
