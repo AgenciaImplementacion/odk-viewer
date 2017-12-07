@@ -1,6 +1,6 @@
 const config = {
-  url_datos: 'https://ide.proadmintierra.info/geoserver/ODK/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODK:datos&maxFeatures=50&outputFormat=application%2Fjson',
-  url_poligonos: 'https://ide.proadmintierra.info/geoserver/ODK/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODK:poligono&maxFeatures=50&outputFormat=application%2Fjson',
+  url_datos: 'https://ide.proadmintierra.info/geoserver/ODK/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODK:la_palma_puntos_datos_recopilados&maxFeatures=50&outputFormat=application%2Fjson',
+  url_poligonos: 'https://ide.proadmintierra.info/geoserver/ODK/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ODK:la_palma_poligono&maxFeatures=50&outputFormat=application%2Fjson',
   ortofoto: {
     url: 'https://ide.proadmintierra.info/geoserver/ODK/wms',
     layers: 'ODK:ortofoto_la_palma_208IB2',
